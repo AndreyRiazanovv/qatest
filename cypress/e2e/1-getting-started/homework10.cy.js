@@ -21,23 +21,20 @@
 
     it("Second" , () => {
     cy.contains("Асортимент").click();
-    apiHelper.getCategories().then(categories => {
+    ApiHelper.getCategories().then(categories => {
     console.log(categories);
     });
     });
-    
-    
-    });
-// 5 Написати тест, який буде використовувати функцію (команду) з п3 для переходу 
-// на сторінку overview, отримувати список створених категорій, використовуючи функцію (команду) 
-// з п4, тобто через API, також переходити через юай у меню Асортимент і валідувати, що кількість 
-// елементів списку на юаї відповідає кількості категорій, отриманих через API запит.
-
-
+    // 5 Написати тест, який буде використовувати функцію (команду) з п3 для переходу 
     it('CheckCategories', () => {
-    cy.contains("Асортимент").click();
-    cy.contains("Додади категорія").click();
-    cy.get("input[type='file']").selectFile("cypress/media/photo.jpeg", {forse: true});
-});
+        cy.contains("Асортимент").click();
+        cy.contains("Додади категорія").click();
+        cy.get("input[type='file']").selectFile("cypress/media/photo.jpeg", {forse: true});
+    });
+    });
 
+
+
+
+   
         

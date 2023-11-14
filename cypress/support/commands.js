@@ -33,7 +33,7 @@ import { ApiHelper } from "./apiHelper";
       ApiHelper.getToken().then((token) => {
         cy.visit('http://5.189.186.217/overview', {
             onBeforeLoad(win) {
-                win.localStorage.SetItem("auth-token", token);
+                win.localStorage.setItem("auth-token", token);
                 } 
         });
     });
