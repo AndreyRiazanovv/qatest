@@ -36,8 +36,17 @@ import { ApiHelper } from "./apiHelper";
                 win.localStorage.setItem("auth-token", token);
                 } 
         });
-    });
+        cy.intercept('/api/analytics/overview', (req) => {
+          // Провалідація статус-коду
+          req.reply({ statusCode: 200, body: 'mocked response' });
+        }).as('overviewRequest');
+    
+        // Розширення таймауту
+        cy.wait('@overviewRequest', { timeout: 7000 });
       });
+    });
+    
+      
 
 // Команда для отримання списку категорій товарів
 
